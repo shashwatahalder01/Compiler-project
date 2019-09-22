@@ -1,56 +1,56 @@
 Compiler Design for subset of C language
+
 The Project: overview
+
 •	The project consists of-
+
 o	lexical analysis
 o	Syntax analysis (parsing and generation of syntax tree)
 o	Semantic analysis
 o	Code generation
+
 Goals and motivation:
+
 •	A complete compiler from source code to machine code
 Motivation:
+
 •	Understand all parts of a compiler
 •	Understand the execution of a program
 •	Experience of a larger programming project.
+
 Implementation language:
+
 Subset of C programming language (common feature of the C language)
 Required Tools:
 1.	flex -Scanner
 2.	bison -Parser
 3.	SPIM- A MIPS Simulator
+
 TOOL DESCRIPTION:
+
 Flex Program:
+
 Flex is a tool for generating scanners: programs which recognized lexical patterns in text. Flex reads the given input files, or its standard input if no file names are given, for a description of a scanner to generate. The description is in the form of pairs of regular expressions and C code, called rules. Flex generates as output a C source file, `lex.yy.c', which defines a routine `yylex ()'. This file is compiled and linked with the `-lfl' library to produce an executable. When the executable is run, it analyzes its input for occurrences of the regular expressions. Whenever it finds one, it executes the corresponding C code.
 
 Bison program:
+
 Bison is a general-purpose parser generator that converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser tables. As an experimental feature, Bison can also generate IELR(1) or canonical LR(1) parser tables. Bison is upward compatible with Yacc: all properly-written Yacc grammars ought to work with Bison with no change.
 Input files should follow the yacc convention of ending in .y.  Unlike yacc, the generated files do not have  fixed names,  but instead use the prefix of the input file.  For instance, a grammar description file named  parse.y  would produce the generated parser in a file named parse.tab.c, nstead of yacc's y.tab.c.
 
 SPIM program:
+
 Spim is a self-contained simulator that runs MIPS32 programs. It reads and executes assembly language programs written for this processor. Spim also provides a simple debugger and minimal set of operating system services. Spim does not execute binary (compiled) programs.
 Spim implements almost the entire MIPS32 assembler-extended instruction set. (It omits most floating point comparisons and rounding modes and the memory system page tables.) The MIPS architecture has several variants that differ in various ways (e.g., the MIPS64 architecture supports 64-bit integers and addresses), which means that Spim will not run programs for all MIPS processors.
 Spim comes with complete source code and documentation.
 Spim implements both a terminal and windows interfaces. On Microsoft Windows, Linux, and Mac OS X, the spim program offers a simple terminal interface and the QtSpim program provides the windowing interface.
 
 QtSpim
+
 The newest version of Spim is called QtSpim, and unlike all of the other version, it runs on Microsoft Windows, Mac OS X, and Linux—the same source code and the same user interface on all three platforms! QtSpim is the version of Spim that currently being actively maintained. The other versions are still available, but are no longer maintained or updated.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Language definition:
+
 Included in Sub set of C-
 •	data types: void, int,  bool, char, string
 •	variables, functions
@@ -88,13 +88,18 @@ Organization of the project
 •	parser
 •	semantic analysis
 •	generation of machine code
+
 Lexical analysis
+
 Input: A C source file
 Output: A "stream" of tokens, errors
 Parser (Syntax analysis)
+
 Input: A stream of tokens
 Output: Syntax tree, errors
+
 Semantic analysis
+
 Input: Syntax tree
 Output: errors (or a syntax tree that is known to be semantically correct)
 Generation of machine code (MIPS)
@@ -105,6 +110,7 @@ Folder containing files
 1.	l.l   - lexer file contains language pattern
 2.	y.y  - parser file contains grammar rules and necessary code convert c to MIPS
 3.	CtoMIPS.h – Abstract syntax tree, symbol table, ctoMIPS code all integrated into one file
+
 On Windows system
 1.	Open command prompt and go to the folder containing the files and run the following command
 2.	bison -d  y.y
@@ -114,6 +120,7 @@ On Windows system
 or 
 •	Simply run the a.cmd file and then type in the command prompt 
 •	a.exe < code.c (file containg code)
+
 On Linux system
 1.	Open terminal and go to the directory containing the files and run the following command
 2.	bison -d  y.y
@@ -127,6 +134,7 @@ Or
 •	./a  < code.c (file containg code)
 Check MIPS file in QtSIMP
 Open QtSIMP and load the MIPS file and run
+
 Example
 1.	Open command prompt and go to the folder containing the files and run the following command
 2.	bison -d  y.y
